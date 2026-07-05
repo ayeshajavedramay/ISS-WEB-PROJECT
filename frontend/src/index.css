@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --primary-color: #fca311; /* Industrial Warning Yellow/Orange */
+  --secondary-color: #14213d; /* Deep Navy Blue */
+  --bg-dark: #0a0e17; /* Very Dark Background */
+  --text-light: #e5e5e5;
+  --glass-bg: rgba(20, 33, 61, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  overflow-x: hidden;
+}
+
+/* Typography and Overrides */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.text-primary { color: var(--primary-color) !important; }
+.bg-primary { background-color: var(--primary-color) !important; }
+.text-dark { color: #14213d !important; }
+.bg-dark { background-color: var(--secondary-color) !important; }
+.text-warning { color: var(--primary-color) !important; }
+.bg-warning { background-color: var(--primary-color) !important; }
+
+/* Custom Buttons */
+.btn-warning {
+  background: linear-gradient(135deg, #fca311, #ffb703);
+  border: none;
+  color: var(--bg-dark) !important;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(252, 163, 17, 0.3);
+}
+
+.btn-warning:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(252, 163, 17, 0.5);
+  background: linear-gradient(135deg, #ffb703, #fca311);
+}
+
+.btn-outline-warning {
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.btn-outline-warning:hover {
+  background-color: var(--primary-color);
+  color: var(--bg-dark) !important;
+  transform: translateY(-2px);
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background-color: var(--glass-bg) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  color: white;
+}
+
+.product-card {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: #1a2639;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  border-color: rgba(252, 163, 17, 0.3);
+}
+
+.product-img-wrapper {
+  overflow: hidden;
+  border-radius: calc(0.375rem - 1px) calc(0.375rem - 1px) 0 0;
+}
+
+.product-img-wrapper img {
+  transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-img-wrapper img {
+  transform: scale(1.1);
+}
+
+/* Navbars */
+.navbar {
+  background: rgba(10, 14, 23, 0.9) !important;
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Custom Input Fields */
+.form-control, .form-select {
+  background-color: #fff !important;
+  border: 1px solid #ced4da !important;
+  color: #212529 !important;
+  transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(252, 163, 17, 0.25);
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Light Theme Overrides for Form Controls */
+.bg-light .form-control, .bg-light .form-select {
+  background-color: white !important;
+  color: #212529 !important;
+  border: 1px solid #ced4da !important;
+}
+
+.bg-light .form-control:focus, .bg-light .form-select:focus {
+  background-color: white !important;
+  color: #212529 !important;
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 0.25rem rgba(252, 163, 17, 0.25) !important;
+}
+
+.bg-light .form-control::placeholder {
+  color: #6c757d !important;
+}
+
+/* Utility Animations */
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+/* Admin Panel Overrides */
+.table {
+  color: var(--text-light);
+}
+.table-dark {
+  background-color: var(--secondary-color);
+}
+.table-hover tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+/* Light Theme Variables and Element Overrides */
+body.light-theme {
+  --bg-dark: #f8f9fa !important; /* Light grey body background */
+  --text-light: #212529 !important; /* Dark text */
+  --secondary-color: #ffffff !important; /* White cards */
+  --glass-bg: rgba(255, 255, 255, 0.9) !important;
+  --glass-border: rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Force body and pages background to be light grey in light mode */
+body.light-theme,
+body.light-theme .min-vh-100 {
+  background-color: #f8f9fa !important;
+  color: #212529 !important;
+}
+
+/* Aggressive text color overrides for light mode readability */
+body.light-theme .text-white,
+body.light-theme .card-title,
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme h4,
+body.light-theme h5,
+body.light-theme h6,
+body.light-theme p,
+body.light-theme span,
+body.light-theme td,
+body.light-theme th,
+body.light-theme small,
+body.light-theme .fw-bold,
+body.light-theme .lead,
+body.light-theme .navbar-brand {
+  color: #212529 !important;
+}
+
+/* Aggressive muted subtext overrides for light mode readability */
+body.light-theme .text-white-50,
+body.light-theme .text-muted,
+body.light-theme .card-text {
+  color: #495057 !important;
+}
+
+/* Table overrides to make them look clean and light in light mode */
+body.light-theme .table {
+  color: #212529 !important;
+}
+
+body.light-theme .table-dark {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+}
+
+body.light-theme .table-dark th,
+body.light-theme .table-dark td {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+  border-color: #dee2e6 !important;
+}
+
+body.light-theme .table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+  color: #212529 !important;
+}
+
+/* Navbar light mode overrides */
+body.light-theme .navbar {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+body.light-theme .nav-link {
+  color: #495057 !important;
+}
+
+body.light-theme .nav-link:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Cart & Product Cards background overrides in light mode */
+body.light-theme .card:not(.bg-transparent),
+body.light-theme .product-card,
+body.light-theme .glass-card {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light-theme .product-card .card-body {
+  background-color: #ffffff !important;
+}
+
+/* Ensure utility colors are respected in light theme */
+body.light-theme .text-warning {
+  color: var(--primary-color) !important;
+}
+body.light-theme .text-success {
+  color: #198754 !important; /* Bootstrap success green */
+}
+body.light-theme .text-danger {
+  color: #dc3545 !important; /* Bootstrap danger red */
+}
+body.light-theme .text-primary {
+  color: var(--primary-color) !important;
+}
+
+/* Hover effect class */
+.hover-white:hover {
+  color: var(--primary-color) !important;
+}
+
+/* Hero Section light mode fixes (always dark backgrounds) */
+body.light-theme .hero-section,
+body.light-theme .hero-section * {
+  color: #ffffff !important;
+}
+body.light-theme .hero-section .badge {
+  color: #14213d !important; /* Keep badge text dark on yellow background */
+}
+body.light-theme .hero-section .lead,
+body.light-theme .hero-section p,
+body.light-theme .hero-section span,
+body.light-theme .hero-section .text-white-50 {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+body.light-theme .hero-section .btn-warning {
+  color: #14213d !important; /* Keep warning button text dark on yellow */
+}
+
+/* Why Choose Us Section light mode fixes (always dark background) */
+body.light-theme .why-choose-us,
+body.light-theme .why-choose-us * {
+  color: #ffffff !important;
+}
+body.light-theme .why-choose-us .badge {
+  color: #14213d !important; /* Keep badge text dark on yellow */
+}
+body.light-theme .why-choose-us .text-white-50,
+body.light-theme .why-choose-us .card-text,
+body.light-theme .why-choose-us p,
+body.light-theme .why-choose-us span {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+body.light-theme .why-choose-us .bg-dark {
+  background-color: #0a0e17 !important; /* Keep the circular icon background dark */
+}
+
+/* Footer light mode fixes (always dark background) */
+body.light-theme footer.bg-dark {
+  background-color: #0d131f !important; /* Keep footer background dark navy */
+}
+body.light-theme footer,
+body.light-theme footer * {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+body.light-theme footer h5,
+body.light-theme footer .text-warning {
+  color: var(--primary-color) !important;
+}
+body.light-theme footer .text-white-50,
+body.light-theme footer .text-muted,
+body.light-theme footer a,
+body.light-theme footer p,
+body.light-theme footer span,
+body.light-theme footer small {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+body.light-theme footer a:hover {
+  color: var(--primary-color) !important;
+}
+
+/* HomeAbout 10+ Years Floating Card - keep it dark navy in light theme */
+body.light-theme .position-absolute.bg-dark {
+  background-color: #14213d !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+body.light-theme .position-absolute.bg-dark h3 {
+  color: var(--primary-color) !important;
+}
+body.light-theme .position-absolute.bg-dark p,
+body.light-theme .position-absolute.bg-dark span {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* Cart Table thead bg override */
+body.light-theme .table-dark thead {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Buttons under product-card in light theme - solid background for high contrast */
+body.light-theme .product-card .btn-outline-warning {
+  background-color: #fca311 !important;
+  color: #14213d !important;
+  border-color: #fca311 !important;
+}
+body.light-theme .product-card .btn-outline-warning:hover {
+  background-color: #14213d !important;
+  color: #ffffff !important;
+  border-color: #14213d !important;
+}
+
+/* Cart quantity buttons in light theme - dark text for high contrast */
+body.light-theme .table-dark .btn-outline-warning {
+  color: #14213d !important;
+  border-color: #fca311 !important;
+}
+body.light-theme .table-dark .btn-outline-warning:hover {
+  background-color: #fca311 !important;
+  color: #14213d !important;
+}
