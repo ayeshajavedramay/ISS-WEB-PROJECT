@@ -15,7 +15,7 @@ function Delete_product() {
     e.preventDefault();
     try {
       // Send the post request directly
-      await axios.post('http://localhost/Database/deleteproduct_process.php', { id: productId });
+      await axios.post('https://iss.site.je/Database/deleteproduct_process.php', { id: productId });
       alert(`Product ID ${productId} deleted successfully!`);
       setProductId("");
     } catch (error) {

@@ -12,7 +12,7 @@ function Admin_panel() {
   // Fetch products from database
   const showRecords = async () => {
     try {
-      const response = await axios.post('http://localhost/Database/fetch_product.php');
+      const response = await axios.post('https://iss.site.je/Database/fetch_product.php');
       setProducts(response.data);
     } catch (error) {
       console.error("Error fetching records:", error);
@@ -32,7 +32,7 @@ function Admin_panel() {
     e.preventDefault();
     try {
       // Pass newProduct directly to axios POST (without creating a custom payload object)
-      await axios.post('http://localhost/Database/addproduct_process.php', newProduct);
+      await axios.post('https://iss.site.je/Database/addproduct_process.php', newProduct);
       alert("Product added successfully!");
       setNewProduct({ name: "", category: "", price: "", stock: "" });
       showRecords(); // Refresh products list from database
@@ -45,7 +45,7 @@ function Admin_panel() {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this product?")) {
       try {
-        await axios.post('http://localhost/Database/deleteproduct_process.php', { id: id });
+        await axios.post('https://iss.site.je/Database/deleteproduct_process.php', { id: id });
         alert("Product deleted successfully!");
         showRecords(); // Refresh products list from database
       } catch (error) {

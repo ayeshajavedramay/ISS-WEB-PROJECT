@@ -23,7 +23,7 @@ function Add_product() {
     e.preventDefault();
     try {
       // Send formData directly (no complex payload wrapping or parsing)
-      await axios.post('http://localhost/Database/addproduct_process.php', formData);
+      await axios.post('https://iss.site.je/Database/addproduct_process.php', formData);
       alert("Product added successfully!");
       setFormData({ name: "", category: "", price: "", stock: "", description: "", imageUrl: "" });
     }

@@ -20,7 +20,7 @@ function Update_product() {
     e.preventDefault();
     try {
       // Send formData directly (no complex payload wrapping or parsing)
-      await axios.post('http://localhost/Database/updateproduct_process.php', formData);
+      await axios.post('https://iss.site.je/Database/updateproduct_process.php', formData);
       alert(`Product ID ${formData.productId} updated successfully!`);
       setFormData({ productId: "", price: "", stock: "" });
     } catch (error) {

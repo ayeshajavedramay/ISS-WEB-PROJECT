@@ -9,7 +9,7 @@ function View() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.post('http://localhost/Database/fetch_product.php');
+        const response = await axios.post('https://iss.site.je/Database/fetch_product.php');
         setProducts(response.data);
       }
       catch (error) {
