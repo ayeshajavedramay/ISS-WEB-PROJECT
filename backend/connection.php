@@ -1,23 +1,15 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "ISS";
+$servername = "sql301.infinityfree.com";
+$username = "if0_42344391";
+$password = "December202224";
+$database = "if0_42344391_iss";
 
 
-$conn = mysqli_connect($servername, $username, $password);
+$conn = mysqli_connect($servername, $username, $password, $database);
 
 if(!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
-
-
-$sql = "CREATE DATABASE IF NOT EXISTS " . $database;
-mysqli_query($conn, $sql);
-
-
-mysqli_select_db($conn, $database);
 
 // Create users table if not exists
 $table_users = "CREATE TABLE IF NOT EXISTS `users` (
