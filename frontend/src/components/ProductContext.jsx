@@ -1,4 +1,5 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
+import axios from "axios";
 
 import helmetImg from '../assets/images/safety_helmet.png';
 import bootsImg from '../assets/images/safety_boots.png';
@@ -19,9 +20,22 @@ export function ProductProvider({ children }) {
         { id: 3, name: "High-Vis Reflective Vest", category: "Body Protection", price: "Rs. 1,200", stock: 300, img: vestImg },
         { id: 4, name: "Full Body Harness", category: "Fall Protection", price: "Rs. 12,000", stock: 40, img: harnessImg },
         { id: 5, name: "Safety Goggles", category: "Eye Protection", price: "Rs. 800", stock: 200, img: gogglesImg },
-        { id: 6, name: "Cut Resistant Gloves", category: "Hand Protection", price: "Rs. 1,500", stock: 500, img: glovesImg },
-        { id: 7, name: "Test Protection Item", category: "Other Protection", price: "Rs. 999", stock: 10, img: helmetImg }
+        { id: 6, name: "Cut Resistant Gloves", category: "Hand Protection", price: "Rs. 1,500", stock: 500, img: glovesImg }
     ]);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const response = await axios.post('https://iss.site.je/Database/fetch_product.php');
+                if (response.data && Array.isArray(response.data)) {
+                    setProducts(response.data);
+                }
+            } catch (error) {
+                console.error("Error fetching products from database:", error);
+            }
+        };
+        fetchProducts();
+    }, []);
 
     return (
         <ProductContext.Provider value={{ products, setProducts }}>
