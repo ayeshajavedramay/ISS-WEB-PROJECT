@@ -5,11 +5,12 @@ import { ProductContext } from "./ProductContext";
 import { CartContext } from "./CartContext";
 
 function Shopping() {
-  const { products } = useContext(ProductContext);
+  const { products, fetchProducts } = useContext(ProductContext);
   const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     document.title = "Shopping";
+    fetchProducts();
   }, []);
 
 

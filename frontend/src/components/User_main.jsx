@@ -11,7 +11,7 @@ import { ProductContext } from './ProductContext';
 
 function User_main() {
   const { addToCart } = useContext(CartContext);
-  const { products } = useContext(ProductContext);
+  const { products, fetchProducts } = useContext(ProductContext);
   const [bgIndex, setBgIndex] = useState(0);
   const heroBackgrounds = [
     heroBg1,
@@ -20,6 +20,7 @@ function User_main() {
   ];
 
   useEffect(() => {
+    fetchProducts();
     const interval = setInterval(() => {
       setBgIndex((prevIndex) => (prevIndex + 1) % heroBackgrounds.length);
     }, 5000); // Change image every 5 seconds

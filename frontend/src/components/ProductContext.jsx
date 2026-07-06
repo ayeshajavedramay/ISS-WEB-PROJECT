@@ -16,22 +16,23 @@ export function ProductProvider({ children }) {
 
     const [products, setProducts] = useState([]);
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const response = await axios.post('https://iss.site.je/Database/fetch_product.php');
-                if (response.data && Array.isArray(response.data)) {
-                    setProducts(response.data);
-                }
-            } catch (error) {
-                console.error("Error fetching products from database:", error);
+    const fetchProducts = async () => {
+        try {
+            const response = await axios.post('https://iss.site.je/Database/fetch_product.php');
+            if (response.data && Array.isArray(response.data)) {
+                setProducts(response.data);
             }
-        };
+        } catch (error) {
+            console.error("Error fetching products from database:", error);
+        }
+    };
+
+    useEffect(() => {
         fetchProducts();
     }, []);
 
     return (
-        <ProductContext.Provider value={{ products, setProducts }}>
+        <ProductContext.Provider value={{ products, setProducts, fetchProducts }}>
             {children}
         </ProductContext.Provider>
     );
