@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 include 'connection.php';
 $rawData = file_get_contents("php://input");
 $data = json_decode($rawData, true);
-$sql = "SELECT `Sr.no` as id, `Product_name` as name, `Product_category` as category, `Product_price` as price, `Product_stock` as stock, `product_img` as img FROM `products`";
+$sql = "SELECT `Sr.no` as id, `Product_name` as name, `Product_category` as category, `Product_price` as price, `Product_stock` as stock, `product_img` as img, `product_desc` as description FROM `products`";
 $result = mysqli_query($conn, $sql);
 if(mysqli_num_rows($result) > 0) {
     $products = array();

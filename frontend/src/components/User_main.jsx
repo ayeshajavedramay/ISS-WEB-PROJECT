@@ -6,13 +6,12 @@ import Testimonials from './Testimonials';
 import heroBg1 from '../assets/images/hero_bg_1.png';
 import heroBg2 from '../assets/images/hero_bg_2.png';
 import heroBg3 from '../assets/images/hero_bg_3.png';
-import helmetImg from '../assets/images/safety_helmet.png';
-import bootsImg from '../assets/images/safety_boots.png';
-import vestImg from '../assets/images/reflective_vest.png';
 import { CartContext } from './CartContext';
+import { ProductContext } from './ProductContext';
 
 function User_main() {
   const { addToCart } = useContext(CartContext);
+  const { products } = useContext(ProductContext);
   const [bgIndex, setBgIndex] = useState(0);
   const heroBackgrounds = [
     heroBg1,
@@ -27,29 +26,7 @@ function User_main() {
     return () => clearInterval(interval);
   }, []);
 
-  const featuredProducts = [
-    {
-      id: 1,
-      name: "Industrial Safety Helmet",
-      description: "High-density polyethylene shell with 4-point suspension for maximum impact protection.",
-      price: "Rs. 2,500",
-      img: helmetImg
-    },
-    {
-      id: 2,
-      name: "Steel Toe Safety Boots",
-      description: "Slip-resistant, oil-resistant construction boots with reinforced steel toe caps.",
-      price: "Rs. 8,500",
-      img: bootsImg
-    },
-    {
-      id: 3,
-      name: "High-Vis Reflective Vest",
-      description: "ANSI Class 2 compliant high-visibility yellow vest with reflective silver strips.",
-      price: "Rs. 1,200",
-      img: vestImg
-    }
-  ];
+  const featuredProducts = products.slice(0, 3);
 
   return (
     <div>
@@ -119,6 +96,11 @@ function User_main() {
                 </div>
               </div>
             ))}
+            {featuredProducts.length === 0 && (
+              <div className="col-12 text-center py-4 text-white-50">
+                No featured products found. Add some from the admin panel!
+              </div>
+            )}
           </div>
         </div>
       </div>
